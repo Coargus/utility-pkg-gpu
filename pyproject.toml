@@ -9,7 +9,7 @@ description = "A GPU utility package for Coargus services."
 authors = [{ name = "minkyu.choi", email = "minkyu.choi07@gmail.com" }]
 license = { file = "LICENSE" }
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.8"
 dependencies = [
     "pynvml",
 ]
