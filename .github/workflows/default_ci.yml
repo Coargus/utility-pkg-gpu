@@ -1,9 +1,6 @@
-name: Deploy - Release
+name: CI Pipeline
+
 on: [push, pull_request]
-# on:
-#   push:
-#     tags:
-#       - 'v*'
 
 jobs:
   build:
@@ -45,17 +42,3 @@ jobs:
       - name: Run Tests
         run: |
           python -m unittest discover
-
-  release:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ needs.build.outputs.matrix }}
-          release_name: Release ${{ needs.build.outputs.matrix }}
-          draft: false
-          prerelease: false
